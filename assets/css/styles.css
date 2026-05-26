@@ -64,20 +64,11 @@ body {
     text-align: center;
     color: white;
     overflow: hidden;
-}
 
-.titulo-principal {
-    font-size: 3.3rem;
-    font-weight: bold;
-    margin-bottom: 15px;
-    letter-spacing: 2px;
-    text-shadow: 1px 1px 6px rgba(0,0,0,0.35);
-}
-
-.subtitulo {
-    font-size: 1.2rem;
-    color: white;
-    text-shadow: 1px 1px 5px rgba(0,0,0,0.30);
+    /* 🔥 CORREÇÃO IMPORTANTE */
+    margin-bottom: 90px;
+    position: relative;
+    z-index: 1;
 }
 
 /* =========================
@@ -98,7 +89,7 @@ body {
 }
 
 /* =========================
-   SEÇÃO
+   TÍTULO SEÇÃO
 ========================= */
 .titulo-secao {
     font-size: 2rem;
@@ -114,15 +105,19 @@ body {
     background-color: rgba(255,255,255,0.97);
     border-radius: 20px;
     overflow: hidden;
-    transition: 0.4s;
+    transition: 0.35s ease;
     border: 1px solid rgba(255,255,255,0.15);
     box-shadow: 0 5px 20px rgba(0,0,0,0.35);
     height: 100%;
+
+    /* 🔥 IMPORTANTE: evita sobreposição visual ao subir */
+    position: relative;
+    z-index: 1;
 }
 
 .produto-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    transform: translateY(-6px);
+    z-index: 5;
 }
 
 .produto-card img {
@@ -138,6 +133,17 @@ body {
     transform: scale(1.03);
 }
 
+/* =========================
+   GARANTIA DE FLUXO VISUAL
+========================= */
+.produto {
+    position: relative;
+    z-index: 1;
+}
+
+/* =========================
+   CARD BODY
+========================= */
 .card-body {
     color: #222;
     display: flex;
@@ -198,40 +204,20 @@ body {
     border-radius: 20px;
     border: 1px solid rgba(255,255,255,0.2);
     box-shadow: 0 5px 20px rgba(0,0,0,0.35);
+
     position: sticky;
     top: 100px;
-}
 
-/* 🔥 CORREÇÃO PRINCIPAL DO PROBLEMA */
-.itens-carrinho,
-.itens-carrinho h6,
-.itens-carrinho p,
-.itens-carrinho span {
-    color: white !important;
-}
-
-.item-carrinho h6 {
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-.item-carrinho p {
-    color: #ddd;
+    max-height: 80vh;
+    overflow-y: auto;
 }
 
 /* =========================
-   BOTÕES
+   ITENS CARRINHO
 ========================= */
-.btn-warning,
-.btn-dark {
-    border-radius: 12px;
-    transition: 0.3s;
-    font-weight: bold;
-}
-
-.btn-warning:hover,
-.btn-dark:hover {
-    transform: scale(1.02);
+.itens-carrinho,
+.itens-carrinho * {
+    color: white !important;
 }
 
 /* =========================
