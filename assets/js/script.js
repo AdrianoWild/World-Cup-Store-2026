@@ -1,27 +1,71 @@
-const botoesAdicionar = document.querySelectorAll(".btn-adicionar")
-const divCarrinho = document.querySelector(".itens-carrinho")
-const totalCarrinho = document.getElementById("total-carrinho")
-const pesquisaProduto = document.getElementById("pesquisaProduto")
-const produtos = document.querySelectorAll(".produto")
-const filtroCategoria = document.getElementById("filtroCategoria")
+const botoesAdicionar = document.querySelectorAll(".btn-adicionar");
+const divCarrinho = document.querySelector(".itens-carrinho");
+const totalCarrinho = document.getElementById("total-carrinho");
+const pesquisaProduto = document.getElementById("pesquisaProduto");
+const produtos = document.querySelectorAll(".produto");
+const filtroCategoria = document.getElementById("filtroCategoria");
+const paypalContainer = document.getElementById("paypal-button-container");
 
-const btnCarrinho = document.getElementById("btnCarrinho")
-const containerCarrinho = document.getElementById("containerCarrinho")
-const fecharCarrinho = document.getElementById("fecharCarrinho")
-
-let carrinho = []
+let carrinho = [];
 
 /* =========================
-   ABRIR E FECHAR CARRINHO
+   CALCULAR TOTAL
 ========================= */
 
-btnCarrinho.addEventListener("click", () => {
-    containerCarrinho.classList.remove("d-none")
-})
+function calcularTotal() {
+    let total = 0;
 
-fecharCarrinho.addEventListener("click", () => {
-    containerCarrinho.classList.add("d-none")
-})
+    carrinho.forEach(item => {
+        total += item.preco * item.quantidade;
+    });
+
+    return total;
+}
+
+/* =========================
+   ATUALIZAR CARRINHO
+========================= */
+
+function atualizarCarrinho() {
+
+    let total = calcularTotal();
+
+    divCarrinho.innerHTML = "";
+
+    if (carrinho.length === 0) {
+        divCarrinho.innerHTML = `<p>Seu carrinho está vazio.</p>`;
+    } else {
+
+        carrinho.forEach((item, index) => {
+
+            divCarrinho.innerHTML += `
+                <div class="item-carrinho mb-3">
+                    <h6>${item.nome}</h6>
+                    <p>R$ ${item.preco.toFixed(2)}</p>
+
+                    <div class="d-flex align-items-center gap-2">
+
+                        <button class="btn btn-sm btn-secondary"
+                            onclick="diminuirQuantidade(${index})">-</button>
+
+                        <span>${item.quantidade}</span>
+
+                        <button class="btn btn-sm btn-secondary"
+                            onclick="aumentarQuantidade(${index})">+</button>
+
+                        <button class="btn btn-sm btn-danger"
+                            onclick="removerProduto(${index})">Remover</button>
+
+                    </div>
+                </div>
+                <hr>
+            `;
+        });
+    }
+
+    totalCarrinho.innerHTML = `Total: R$ ${total.toFixed(2)}`;
+    atualizarPayPalUI();
+}
 
 /* =========================
    ADICIONAR PRODUTOS
@@ -31,183 +75,105 @@ botoesAdicionar.forEach(botao => {
 
     botao.addEventListener("click", () => {
 
-        const nome = botao.dataset.nome
-        const preco = parseFloat(botao.dataset.preco)
+        const nome = botao.dataset.nome;
+        const preco = parseFloat(botao.dataset.preco);
 
-        const produtoExistente = carrinho.find(item => item.nome === nome)
+        const produtoExistente = carrinho.find(item => item.nome === nome);
 
         if (produtoExistente) {
-            produtoExistente.quantidade++
+            produtoExistente.quantidade++;
         } else {
             carrinho.push({
                 nome,
                 preco,
                 quantidade: 1
-            })
+            });
         }
 
-        atualizarCarrinho()
-    })
-})
+        atualizarCarrinho();
+    });
+});
 
 /* =========================
-   ATUALIZAR CARRINHO
-========================= */
-
-function atualizarCarrinho() {
-
-    divCarrinho.innerHTML = ""
-
-    let total = 0
-
-    carrinho.forEach((item, index) => {
-
-        total += item.preco * item.quantidade
-
-        divCarrinho.innerHTML += `
-            <div class="item-carrinho mb-3">
-                <h6>${item.nome}</h6>
-
-                <p>R$ ${item.preco.toFixed(2)}</p>
-
-                <div class="d-flex align-items-center gap-2">
-
-                    <button class="btn btn-sm btn-secondary"
-                        onclick="diminuirQuantidade(${index})">
-                        -
-                    </button>
-
-                    <span>${item.quantidade}</span>
-
-                    <button class="btn btn-sm btn-secondary"
-                        onclick="aumentarQuantidade(${index})">
-                        +
-                    </button>
-
-                    <button class="btn btn-sm btn-danger"
-                        onclick="removerProduto(${index})">
-                        Remover
-                    </button>
-
-                </div>
-            </div>
-            <hr>
-        `
-    })
-
-    if (carrinho.length === 0) {
-        divCarrinho.innerHTML = `<p>Seu carrinho está vazio.</p>`
-    }
-
-    totalCarrinho.innerHTML = `Total: R$ ${total.toFixed(2)}`
-}
-
-/* =========================
-   CONTROLE DE ITENS
+   CONTROLES
 ========================= */
 
 function removerProduto(index) {
-    carrinho.splice(index, 1)
-    atualizarCarrinho()
+    carrinho.splice(index, 1);
+    atualizarCarrinho();
 }
 
 function aumentarQuantidade(index) {
-    carrinho[index].quantidade++
-    atualizarCarrinho()
+    carrinho[index].quantidade++;
+    atualizarCarrinho();
 }
 
 function diminuirQuantidade(index) {
     if (carrinho[index].quantidade > 1) {
-        carrinho[index].quantidade--
+        carrinho[index].quantidade--;
     } else {
-        removerProduto(index)
+        carrinho.splice(index, 1);
     }
-    atualizarCarrinho()
+    atualizarCarrinho();
 }
 
 /* =========================
-   REMOVER ACENTOS
+   BUSCA
 ========================= */
 
 function removerAcentos(texto) {
-    return texto
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
+    return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 }
-
-/* =========================
-   BUSCA DE PRODUTOS
-========================= */
 
 pesquisaProduto.addEventListener("keyup", () => {
 
-    let textoPesquisa = pesquisaProduto.value
-        .toLowerCase()
-        .trim()
-
-    textoPesquisa = textoPesquisa
-        .replace("camisas", "camisa")
-        .replace("bonés", "bone")
-        .replace("bones", "bone")
-        .replace("chuteiras", "chuteira")
-        .replace("acessórios", "acessorio")
-        .replace("acessorios", "acessorio")
-
-    textoPesquisa = removerAcentos(textoPesquisa)
+    let texto = removerAcentos(
+        pesquisaProduto.value.toLowerCase().trim()
+    );
 
     produtos.forEach(produto => {
 
-        const nomeProduto = removerAcentos(
-            produto.innerText.toLowerCase()
-        )
+        let nome = removerAcentos(produto.innerText.toLowerCase());
 
-        if (nomeProduto.includes(textoPesquisa)) {
-            produto.style.display = "block"
-        } else {
-            produto.style.display = "none"
-        }
-    })
-})
+        produto.style.display = nome.includes(texto)
+            ? "block"
+            : "none";
+    });
+});
 
 /* =========================
-   FILTRO CATEGORIA
+   FILTRO
 ========================= */
 
 filtroCategoria.addEventListener("change", () => {
 
-    const categoriaSelecionada = filtroCategoria.value.toLowerCase()
+    const categoria = filtroCategoria.value.toLowerCase();
 
     produtos.forEach(produto => {
 
-        if (categoriaSelecionada === "todas as categorias") {
-            produto.style.display = "block"
+        if (categoria === "todas as categorias") {
+            produto.style.display = "block";
+        } else {
+            produto.style.display = produto.classList.contains(categoria)
+                ? "block"
+                : "none";
         }
-        else if (produto.classList.contains(categoriaSelecionada)) {
-            produto.style.display = "block"
-        }
-        else {
-            produto.style.display = "none"
-        }
-    })
-})
+    });
+});
 
 /* =========================
-   PAYPAL CHECKOUT
+   PAYPAL (RENDER ÚNICO)
 ========================= */
 
 paypal.Buttons({
 
     createOrder: function (data, actions) {
 
-        let total = 0
-
-        carrinho.forEach(item => {
-            total += item.preco * item.quantidade
-        })
+        const total = calcularTotal();
 
         if (total <= 0) {
-            alert("Adicione produtos ao carrinho.")
-            return
+            alert("Adicione produtos ao carrinho.");
+            return;
         }
 
         return actions.order.create({
@@ -216,29 +182,74 @@ paypal.Buttons({
                     value: total.toFixed(2)
                 }
             }]
-        })
+        });
     },
 
     onApprove: function (data, actions) {
 
         return actions.order.capture().then(function (details) {
 
-            alert(
-                "Pagamento realizado com sucesso por " +
-                details.payer.name.given_name
-            )
+            alert("Pagamento realizado com sucesso por " + details.payer.name.given_name);
 
-            carrinho = []
-            atualizarCarrinho()
-        })
+            carrinho = [];
+            atualizarCarrinho();
+        });
     },
 
     onCancel: function () {
-        alert("Pagamento cancelado.")
+        alert("Pagamento cancelado.");
     },
 
     onError: function () {
-        alert("Ocorreu um erro no pagamento.")
+        alert("Ocorreu um erro no pagamento.");
     }
 
-}).render("#paypal-button-container")
+}).render("#paypal-button-container");
+
+function atualizarPayPalUI() {
+
+    const total = calcularTotal();
+
+    if (total <= 0) {
+
+        paypalContainer.innerHTML = ""; // remove cartão + botão
+        return;
+    }
+
+    paypalContainer.innerHTML = "";
+
+    paypal.Buttons({
+
+        createOrder: function (data, actions) {
+
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+                        value: total.toFixed(2)
+                    }
+                }]
+            });
+        },
+
+        onApprove: function (data, actions) {
+
+            return actions.order.capture().then(function (details) {
+
+                alert("Pagamento realizado com sucesso por " + details.payer.name.given_name);
+
+                carrinho = [];
+                atualizarCarrinho();
+                atualizarPayPalUI(); // 🔥 limpa cartão também
+            });
+        },
+
+        onCancel: function () {
+            alert("Pagamento cancelado.");
+        },
+
+        onError: function () {
+            alert("Ocorreu um erro no pagamento.");
+        }
+
+    }).render("#paypal-button-container");
+}
