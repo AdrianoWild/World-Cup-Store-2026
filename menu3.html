@@ -27,234 +27,240 @@
 
 <body>
 
+    <header>
 
-    <nav
-    class="navbar navbar-expand-lg navbar-dark menu-principal">
+        <nav
+        class="navbar navbar-expand-lg navbar-dark menu-principal">
 
-        <div class="container">
+            <div class="container">
 
-            <a
-            class="navbar-brand"
-            href="index.html">
+                <a
+                class="navbar-brand"
+                href="index.html">
 
-                🏆 World Cup Store 2026
+                    🏆 World Cup Store 2026
 
-            </a>
+                </a>
 
-            <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#menu">
+                <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#menu">
 
-                <span
-                class="navbar-toggler-icon">
-                </span>
+                    <span
+                    class="navbar-toggler-icon">
+                    </span>
 
-            </button>
+                </button>
 
-            <div
-            class="collapse navbar-collapse"
-            id="menu">
+                <div
+                class="collapse navbar-collapse"
+                id="menu">
 
-                <ul class="navbar-nav ms-auto">
+                    <ul class="navbar-nav ms-auto">
 
-                    <li class="nav-item">
+                        <li class="nav-item">
 
-                        <a
-                        class="nav-link"
-                        href="index.html">
+                            <a
+                            class="nav-link"
+                            href="index.html">
 
-                            Início
+                                Início
 
-                        </a>
+                            </a>
 
-                    </li>
+                        </li>
 
-                    <li class="nav-item">
+                        <li class="nav-item">
 
-                        <a
-                        class="nav-link"
-                        href="menu1.html">
+                            <a
+                            class="nav-link"
+                            href="menu1.html">
 
-                            História
+                                História
 
-                        </a>
+                            </a>
 
-                    </li>
+                        </li>
 
-                    <li class="nav-item">
+                        <li class="nav-item">
 
-                        <a
-                        class="nav-link"
-                        href="menu2.html">
+                            <a
+                            class="nav-link"
+                            href="menu2.html">
 
-                            Produtos
+                                Produtos
 
-                        </a>
+                            </a>
 
-                    </li>
+                        </li>
 
-                    <li class="nav-item">
+                        <li class="nav-item">
 
-                        <a
-                        class="nav-link active"
-                        href="menu3.html">
+                            <a
+                            class="nav-link active"
+                            href="menu3.html">
 
-                            Contato
+                                Contato
 
-                        </a>
+                            </a>
 
-                    </li>
+                        </li>
 
-                </ul>
+                    </ul>
+
+                </div>
 
             </div>
 
-        </div>
+        </nav>
 
-    </nav>
+    </header>
 
+    <main>
 
-    <section class="hero">
+        <section class="hero">
 
-        <div class="container">
+            <div class="container">
 
-            <h1 class="titulo-principal">
+                <h1 class="titulo-principal">
 
-                Entre em Contato
+                    Entre em Contato
 
-            </h1>
+                </h1>
 
-            <p class="subtitulo">
+                <p class="subtitulo">
 
-                Envie sua mensagem para nossa equipe
+                    Envie sua mensagem para nossa equipe
 
-            </p>
+                </p>
 
-        </div>
+            </div>
 
-    </section>
-
-
-    <section class="container mb-5">
-
-        <div class="row justify-content-center">
-
-            <div class="col-lg-8">
-
-                <div class="produto-card p-5">
-
-                    <h2 class="text-primary fw-bold mb-4">
-
-                        Formulário de Contato
-
-                    </h2>
-
-                    <form id="formContato">
+        </section>
 
 
-                        <div class="mb-4">
+        <section class="container mb-5">
 
-                            <label
-                            class="form-label text-dark fw-bold">
+            <div class="row justify-content-center">
 
-                                Nome Completo
-                            </label>
+                <div class="col-lg-8">
+
+                    <div class="produto-card p-5">
+
+                        <h2 class="text-primary fw-bold mb-4">
+
+                            Formulário de Contato
+
+                        </h2>
+
+                        <form id="formContato" action="https://formsubmit.co/adrianowilddeavila@gmail.com"
+                        method="POST">
+
+
+                            <div class="mb-4">
+
+                                <label
+                                class="form-label text-dark fw-bold">
+
+                                    Nome Completo
+                                </label>
+
+                                <input type="text" name="nome" class="form-control pesquisa" placeholder="Digite seu nome" required>
+
+                            </div>
+
+
+                            <div class="mb-4">
+
+                                <label
+                                class="form-label text-dark fw-bold">
+
+                                    Email
+                                </label>
+
+                                <input type="email" name="email" class="form-control pesquisa" placeholder="Digite seu email" required>
+
+                            </div>
+
+
+                            <div class="mb-4">
+
+                                <label
+                                class="form-label text-dark fw-bold">
+
+                                    Telefone
+                                </label>
+
+                                <input type="tel" name="telefone" class="form-control pesquisa" placeholder="Digite seu telefone">
+
+                            </div>
+
+
+                            <div class="mb-4">
+
+                                <label
+                                class="form-label text-dark fw-bold">
+
+                                    Assunto
+                                </label>
+
+                                <input type="text" name="assunto" class="form-control pesquisa" placeholder="Digite o assunto" required>
+
+                            </div>
+
+
+                            <div class="mb-4">
+
+                                <label
+                                class="form-label text-dark fw-bold">
+
+                                    Mensagem
+                                </label>
+
+                                <textarea name="mensagem" class="form-control" rows="6" placeholder="Digite sua mensagem" required></textarea>
+
+                            </div>
 
                             <input
-                            type="text"
-                            class="form-control pesquisa"
-                            placeholder="Digite seu nome"
-                            required>
-
-                        </div>
-
-
-                        <div class="mb-4">
-
-                            <label
-                            class="form-label text-dark fw-bold">
-
-                                Email
-                            </label>
+                            type="hidden"
+                            name="_subject"
+                            value="Nova mensagem do site World Cup Store 2026">
 
                             <input
-                            type="email"
-                            class="form-control pesquisa"
-                            placeholder="Digite seu email"
-                            required>
-
-                        </div>
-
-
-                        <div class="mb-4">
-
-                            <label
-                            class="form-label text-dark fw-bold">
-
-                                Telefone
-                            </label>
+                            type="hidden"
+                            name="_captcha"
+                            value="true">
 
                             <input
-                            type="tel"
-                            class="form-control pesquisa"
-                            placeholder="Digite seu telefone">
-
-                        </div>
-
-
-                        <div class="mb-4">
-
-                            <label
-                            class="form-label text-dark fw-bold">
-
-                                Assunto
-                            </label>
+                            type="hidden"
+                            name="_next"
+                            value="https://formsubmit.co/thanks">
 
                             <input
-                            type="text"
-                            class="form-control pesquisa"
-                            placeholder="Digite o assunto"
-                            required>
+                            type="hidden"
+                            name="_template"
+                            value="table">
+
+
+                            <button
+                            type="submit"
+                            class="btn btn-primary w-100">
+
+                                Enviar Mensagem
+
+                            </button>
+
+                        </form>
+
+                        <div
+                        id="mensagemSucesso"
+                        class="alert alert-success mt-4 d-none">
+
+                            Sua mensagem foi enviada com sucesso!
 
                         </div>
-
-
-                        <div class="mb-4">
-
-                            <label
-                            class="form-label text-dark fw-bold">
-
-                                Mensagem
-                            </label>
-
-                            <textarea
-                            class="form-control"
-                            rows="6"
-                            placeholder="Digite sua mensagem"
-                            required>
-                            </textarea>
-
-                        </div>
-
-
-                        <button
-                        type="submit"
-                        class="btn btn-primary w-100">
-
-                            Enviar Mensagem
-
-                        </button>
-
-                    </form>
-
-
-                    <div
-                    id="mensagemSucesso"
-                    class="alert alert-success mt-4 d-none">
-
-                        Sua mensagem foi enviada com sucesso!
 
                     </div>
 
@@ -262,10 +268,9 @@
 
             </div>
 
-        </div>
+        </section>
 
-    </section>
-
+    </main>
 
     <footer class="footer">
 
@@ -282,26 +287,6 @@
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
     </script>
 
-
-    <script>
-
-        const formContato =
-        document.getElementById("formContato")
-
-        const mensagemSucesso =
-        document.getElementById("mensagemSucesso")
-
-        formContato.addEventListener("submit", function(event){
-
-            event.preventDefault()
-
-            mensagemSucesso.classList.remove("d-none")
-
-            formContato.reset()
-
-        })
-
-    </script>
 
 </body>
 
