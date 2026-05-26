@@ -13,11 +13,12 @@
         Produtos - World Cup Store 2026
     </title>
 
-
     <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
     rel="stylesheet">
 
+    <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 
     <link
     rel="stylesheet"
@@ -27,156 +28,287 @@
 
 <body>
 
-    <nav
-    class="navbar navbar-expand-lg navbar-dark menu-principal">
+    <header>
 
-        <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark menu-principal">
+            <div class="container">
 
-            <a
-            class="navbar-brand"
-            href="index.html">
+                <a class="navbar-brand fw-bold" href="index.html">
+                    <i class="bi bi-trophy-fill"></i>
+                    World Cup Store 2026
+                </a>
 
-                🏆 World Cup Store 2026
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-            </a>
+                <div class="collapse navbar-collapse" id="menuNavbar">
 
-            <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#menu">
+                    <ul class="navbar-nav mx-auto">
 
-                <span
-                class="navbar-toggler-icon">
-                </span>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Página inicial</a>
+                        </li>
 
-            </button>
+                        <li class="nav-item">
+                            <a class="nav-link" href="menu1.html">História</a>
+                        </li>
 
-            <div
-            class="collapse navbar-collapse"
-            id="menu">
+                        <li class="nav-item">
+                            <a class="nav-link" href="menu2.html">Dicas de produtos</a>
+                        </li>
 
-                <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="menu3.html">Fale conosco</a>
+                        </li>
 
-                    <li class="nav-item">
+                    </ul>
 
-                        <a
-                        class="nav-link"
-                        href="index.html">
+                </div>
 
-                            Início
+            </div>
+        </nav>
 
-                        </a>
+    </header>
 
-                    </li>
+    <main>
 
-                    <li class="nav-item">
+        <section class="hero">
 
-                        <a
-                        class="nav-link"
-                        href="menu1.html">
+            <div class="container">
 
-                            História
+                <h1 class="titulo-principal">
 
-                        </a>
+                    Produtos Recomendados
 
-                    </li>
+                </h1>
 
-                    <li class="nav-item">
+                <p class="subtitulo">
 
-                        <a
-                        class="nav-link active"
-                        href="menu2.html">
+                    Confira dicas especiais para torcedores da Copa do Mundo 2026
 
-                            Produtos
-
-                        </a>
-
-                    </li>
-
-                    <li class="nav-item">
-
-                        <a
-                        class="nav-link"
-                        href="menu3.html">
-
-                            Contato
-
-                        </a>
-
-                    </li>
-
-                </ul>
+                </p>
 
             </div>
 
-        </div>
+        </section>
 
-    </nav>
+        <section class="container mb-5">
 
-    <section class="hero">
-
-        <div class="container">
-
-            <h1 class="titulo-principal">
-
-                Produtos Recomendados
-
-            </h1>
-
-            <p class="subtitulo">
-
-                Confira dicas especiais para torcedores da Copa do Mundo 2026
-
-            </p>
-
-        </div>
-
-    </section>
-
-    <section class="container mb-5">
-
-        <div class="row g-4">
+            <div class="row g-4">
 
 
-            <div class="col-md-6 col-lg-4">
+                <div class="col-md-6 col-lg-4">
 
-                <div class="produto-card h-100">
+                    <div class="produto-card h-100">
 
-                    <img
-                    class="produto-destaque"
-                    src="assets/img/trofeu.png"
-                    alt="Troféu Copa do Mundo">
+                        <img
+                        class="produto-destaque"
+                        src="assets/img/trofeu.png"
+                        alt="Troféu Copa do Mundo">
 
-                    <div class="card-body">
+                        <div class="card-body">
 
-                        <h5 class="card-title">
+                            <h5 class="card-title">
 
-                            Troféu World Champion 2026
+                                Troféu World Champion 2026
+
+                            </h5>
+
+                            <p class="card-text">
+
+                                Réplica temática inspirada no maior campeonato de futebol do mundo. Produto ideal para colecionadores e apaixonados por futebol.
+
+                            </p>
+
+                            <ul class="lista-produto">
+
+                                <li>
+                                    Acabamento dourado premium
+                                </li>
+
+                                <li>
+                                    Modelo decorativo exclusivo
+                                </li>
+
+                                <li>
+                                    Excelente para coleção
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="produto-card h-100">
+
+                        <img
+                        class="produto-destaque"
+                        src="assets/img/garrafadeagua.png"
+                        alt="Garrafa de Água">
+
+                        <div class="card-body">
+
+                            <h5 class="card-title">
+
+                                Garrafa Térmica Copa 2026
+
+                            </h5>
+
+                            <p class="card-text">
+
+                                Garrafa moderna e resistente para acompanhar você durante os jogos e eventos esportivos da Copa do Mundo 2026.
+
+                            </p>
+
+                            <ul class="lista-produto">
+
+                                <li>
+                                    Conservação térmica eficiente
+                                </li>
+
+                                <li>
+                                    Design esportivo exclusivo
+                                </li>
+
+                                <li>
+                                    Ideal para uso diário
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="produto-card h-100">
+
+                        <img
+                        class="produto-destaque"
+                        src="assets/img/chaveiro.png"
+                        alt="Chaveiro Copa">
+
+                        <div class="card-body">
+
+                            <h5 class="card-title">
+
+                                Chaveiro Oficial Copa 2026
+
+                            </h5>
+
+                            <p class="card-text">
+
+                                Chaveiro temático com bola estilizada e mini troféu inspirado na Copa do Mundo. Produto perfeito para fãs e colecionadores.
+
+                            </p>
+
+                            <ul class="lista-produto">
+
+                                <li>
+                                    Modelo compacto e elegante
+                                </li>
+
+                                <li>
+                                    Material resistente
+                                </li>
+
+                                <li>
+                                    Excelente opção de presente
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+
+        <section class="container mb-5">
+
+            <div class="produto-card p-5">
+
+                <h2 class="text-primary fw-bold mb-4">
+
+                    Dicas para Torcedores
+
+                </h2>
+
+                <div class="row">
+
+                    <div class="col-md-6">
+
+                        <h5 class="text-dark fw-bold">
+
+                            🎉 Prepare seu kit torcedor
 
                         </h5>
 
-                        <p class="card-text">
+                        <p class="text-dark">
 
-                            Réplica temática inspirada no maior campeonato de futebol do mundo. Produto ideal para colecionadores e apaixonados por futebol.
+                            Utilize bandeiras, cornetas e acessórios personalizados para deixar sua torcida ainda mais animada.
 
                         </p>
 
-                        <ul class="lista-produto">
+                    </div>
 
-                            <li>
-                                Acabamento dourado premium
-                            </li>
+                    <div class="col-md-6">
 
-                            <li>
-                                Modelo decorativo exclusivo
-                            </li>
+                        <h5 class="text-dark fw-bold">
 
-                            <li>
-                                Excelente para coleção
-                            </li>
+                            👕 Use roupas confortáveis
 
-                        </ul>
+                        </h5>
+
+                        <p class="text-dark">
+
+                            Camisas esportivas e shorts leves são ideais para acompanhar os jogos por longos períodos.
+
+                        </p>
+
+                    </div>
+
+                    <div class="col-md-6 mt-4">
+
+                        <h5 class="text-dark fw-bold">
+
+                            🧊 Mantenha sua bebida gelada
+
+                        </h5>
+
+                        <p class="text-dark">
+
+                            Copos térmicos ajudam a manter bebidas na temperatura ideal durante toda a partida.
+
+                        </p>
+
+                    </div>
+
+                    <div class="col-md-6 mt-4">
+
+                        <h5 class="text-dark fw-bold">
+
+                            ⚽ Aproveite a experiência completa
+
+                        </h5>
+
+                        <p class="text-dark">
+
+                            Monte combinações de produtos para criar uma experiência completa de torcida durante a Copa do Mundo 2026.
+
+                        </p>
 
                     </div>
 
@@ -184,180 +316,9 @@
 
             </div>
 
-            <div class="col-md-6 col-lg-4">
+        </section>
 
-                <div class="produto-card h-100">
-
-                    <img
-                    class="produto-destaque"
-                    src="assets/img/garrafadeagua.png"
-                    alt="Garrafa de Água">
-
-                    <div class="card-body">
-
-                        <h5 class="card-title">
-
-                            Garrafa Térmica Copa 2026
-
-                        </h5>
-
-                        <p class="card-text">
-
-                            Garrafa moderna e resistente para acompanhar você durante os jogos e eventos esportivos da Copa do Mundo 2026.
-
-                        </p>
-
-                        <ul class="lista-produto">
-
-                            <li>
-                                Conservação térmica eficiente
-                            </li>
-
-                            <li>
-                                Design esportivo exclusivo
-                            </li>
-
-                            <li>
-                                Ideal para uso diário
-                            </li>
-
-                        </ul>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="col-md-6 col-lg-4">
-
-                <div class="produto-card h-100">
-
-                    <img
-                    class="produto-destaque"
-                    src="assets/img/chaveiro.png"
-                    alt="Chaveiro Copa">
-
-                    <div class="card-body">
-
-                        <h5 class="card-title">
-
-                            Chaveiro Oficial Copa 2026
-
-                        </h5>
-
-                        <p class="card-text">
-
-                            Chaveiro temático com bola estilizada e mini troféu inspirado na Copa do Mundo. Produto perfeito para fãs e colecionadores.
-
-                        </p>
-
-                        <ul class="lista-produto">
-
-                            <li>
-                                Modelo compacto e elegante
-                            </li>
-
-                            <li>
-                                Material resistente
-                            </li>
-
-                            <li>
-                                Excelente opção de presente
-                            </li>
-
-                        </ul>
-
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
-
-    </section>
-
-    <section class="container mb-5">
-
-        <div class="produto-card p-5">
-
-            <h2 class="text-primary fw-bold mb-4">
-
-                Dicas para Torcedores
-
-            </h2>
-
-            <div class="row">
-
-                <div class="col-md-6">
-
-                    <h5 class="text-dark fw-bold">
-
-                        🎉 Prepare seu kit torcedor
-
-                    </h5>
-
-                    <p class="text-dark">
-
-                        Utilize bandeiras, cornetas e acessórios personalizados para deixar sua torcida ainda mais animada.
-
-                    </p>
-
-                </div>
-
-                <div class="col-md-6">
-
-                    <h5 class="text-dark fw-bold">
-
-                        👕 Use roupas confortáveis
-
-                    </h5>
-
-                    <p class="text-dark">
-
-                        Camisas esportivas e shorts leves são ideais para acompanhar os jogos por longos períodos.
-
-                    </p>
-
-                </div>
-
-                <div class="col-md-6 mt-4">
-
-                    <h5 class="text-dark fw-bold">
-
-                        🧊 Mantenha sua bebida gelada
-
-                    </h5>
-
-                    <p class="text-dark">
-
-                        Copos térmicos ajudam a manter bebidas na temperatura ideal durante toda a partida.
-
-                    </p>
-
-                </div>
-
-                <div class="col-md-6 mt-4">
-
-                    <h5 class="text-dark fw-bold">
-
-                        ⚽ Aproveite a experiência completa
-
-                    </h5>
-
-                    <p class="text-dark">
-
-                        Monte combinações de produtos para criar uma experiência completa de torcida durante a Copa do Mundo 2026.
-
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
+    </main>
 
     <footer class="footer">
 
